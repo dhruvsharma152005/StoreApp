@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Login from "./Login";
+import { useAuth } from "../context/AuthProvider";
+import Logout from "./Logout";
 function Navbar() {
+    const[authUser,setAuthUser]=useAuth();
+  
+
+
+
+
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
   );
@@ -130,14 +138,21 @@ function Navbar() {
               </svg>
             </label>
 
-            {/* Login Button */}
+          {
+            authUser?(<Logout />):(
+          
+
+
+            <div>
             <a className="px-3 py-2 text-white bg-black rounded-md hover:bg-slate-700 transition"
             onClick={()=>document.getElementById("my_modal_3").showModal()}>
               Login
             </a>
             <Login />
           </div>
+        )}
         </div>
+      </div>
       </div>
 
       {/* To push page content below fixed navbar */}

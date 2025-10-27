@@ -6,11 +6,15 @@ import './index.css'
 import Home from './home/Home'
 import Signup from './components/Signup'
 import Courses from './courses/Courses'
-import {Route,Routes} from "react-router-dom"
+import {Navigate, Route,Routes} from "react-router-dom"
 import ContactPage from './contact/ContactPage'
+import { Toaster } from 'react-hot-toast';
+import { useAuth } from './context/AuthProvider'
 
 function App() {
   const [count, setCount] = useState(0)
+    const[authUser,setAuthUser]=useAuth();
+  console.log(authUser);
 
   return (
     <>
@@ -19,10 +23,11 @@ function App() {
     <Course /> */}
     <Routes>
       <Route path="/" element={<Home />}></Route>
-      <Route path="/course" element={<Courses />}></Route>
+      <Route path="/course" element={authUser?<Courses />:<Navigate to="/signup"/>}></Route>
       <Route path="/signup" element={<Signup />}></Route>
       <Route path="/contact" element={<ContactPage />}></Route>
     </Routes>
+     <Toaster />
     </div>
     </>
   )

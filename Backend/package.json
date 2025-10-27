@@ -1,0 +1,29 @@
+{
+  "name": "bookstore",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/dhruvsharma152005/StoreApp#readme",
+  "bugs": {
+    "url": "https://github.com/dhruvsharma152005/StoreApp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhruvsharma152005/StoreApp.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mongoose": "^8.19.2",
+    "nodemon": "^3.1.10"
+  }
+}
